@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jim Moffitt — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16232E;
+    --ink-soft: #3E4C58;
+    --muted: #6B7480;
+    --paper: #F6F7F5;
+    --card: #FFFFFF;
+    --line: #DADFE0;
+    --teal: #1B6E71;
+    --teal-soft: #E4F1F0;
+    --amber: #B96A1F;
+    --amber-soft: #FBEEDF;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem 2.5rem 5rem;
+  }
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 2.1rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .role-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--teal);
+    background: var(--teal-soft);
+    border: 1px solid var(--teal);
+    border-radius: 3px;
+    padding: 3px 9px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+  .contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .contact a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--line); }
+  .contact a:hover { color: var(--teal); border-color: var(--teal); }
+
+  .trace {
+    width: 100%;
+    height: 14px;
+    margin: 1.6rem 0 2.1rem;
+    display: block;
+  }
+  .trace path {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 1.4;
+    opacity: 0.55;
+  }
+
+  section { margin-bottom: 2.3rem; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .profile-text { color: var(--ink-soft); font-size: 0.98rem; max-width: 66ch; }
+
+  .job { margin-bottom: 1.55rem; }
+  .job:last-child { margin-bottom: 0; }
+  .job-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+  }
+  .job-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .job-org { color: var(--ink-soft); font-weight: 400; }
+  .job-dates {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  ul.job-points {
+    margin: 0.5rem 0 0;
+    padding-left: 1.15rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  ul.job-points li { margin-bottom: 0.35rem; }
+  ul.job-points li:last-child { margin-bottom: 0; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .skill-row {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    font-size: 0.94rem;
+  }
+  .skill-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--teal);
+    padding-top: 0.15rem;
+  }
+  .skill-value { color: var(--ink-soft); }
+
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .edu-row:last-child { border-bottom: none; }
+  .edu-degree { font-weight: 600; }
+  .edu-school { color: var(--muted); font-size: 0.9rem; }
+
+  .rec-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--amber);
+    border-radius: 4px;
+    padding: 0.95rem 1.15rem;
+    margin-bottom: 0.85rem;
+  }
+  .rec-card:last-child { margin-bottom: 0; }
+  .rec-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .rec-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--amber);
+    background: var(--amber-soft);
+    border-radius: 3px;
+    padding: 1px 7px;
+    white-space: nowrap;
+  }
+  .rec-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  @media print {
+    body { background: white; }
+    .sheet { padding: 0.5in; max-width: 100%; }
+    .rec-card { break-inside: avoid; }
+    .job { break-inside: avoid; }
+  }
+
+  @media (max-width: 560px) {
+    .sheet { padding: 2rem 1.25rem 3rem; }
+    .name { font-size: 1.6rem; }
+    .skill-row { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="head">
+    <h1 class="name">Jim Moffitt</h1>
+    <span class="role-tag">real-time data &amp; public safety systems</span>
+  </div>
+  <div class="contact">
+    Longmont, CO &nbsp;·&nbsp;
+    <a href="mailto:i.am.jim.moffitt@gmail.com">i.am.jim.moffitt@gmail.com</a> &nbsp;·&nbsp;
+    <a href="https://github.com/jimmoffitt" target="_blank" rel="noopener">github.com/jimmoffitt</a> &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/jimmoffitt" target="_blank" rel="noopener">linkedin.com/in/jimmoffitt</a>
+  </div>
+
+  <svg class="trace" viewBox="0 0 760 14" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,7 L60,7 L75,2 L90,12 L105,7 L200,7 L215,4 L228,10 L242,7 L400,7 L414,2 L428,12 L442,7 L600,7 L613,4 L626,10 L640,7 L760,7" />
+  </svg>
+
+  <section>
+    <div class="eyebrow">Profile</div>
+    <p class="profile-text">
+      Senior technical leader with 15+ years building real-time data infrastructure for public safety and mission-critical applications. Led award-winning work integrating social media streams into flood-warning systems used by emergency managers worldwide — recognized by USGS and the National Hydrologic Warning Council. Experienced in API platform engineering, developer advocacy, and enterprise-scale data pipelines. Seeking to apply these skills to protecting the integrity of democratic infrastructure and public information systems.
+    </p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Experience</div>
+
+    <div class="job">
+      <div class="job-row">
+        <span class="job-title">Independent Technical Contributor <span class="job-org">— Career Sabbatical</span></span>
+        <span class="job-dates">Jan 2025 – Present</span>
+      </div>
+      <ul class="job-points">
+        <li>Continuing contributions to open-source flood-warning software and real-time alert research communities.</li>
+        <li>Independent Python/API automation projects; exploring civic technology applications.</li>
+        <li>Pursuing opportunities at the intersection of public safety data, civic infrastructure, and election integrity.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-row">
+        <span class="job-title">Senior Developer Advocate <span class="job-org">— Tinybird</span></span>
+        <span class="job-dates">2023 – 2024</span>
+      </div>
+      <ul class="job-points">
+        <li>Built proof-of-concept demos and technical workshops on real-time data streaming, change data capture, and anomaly detection for enterprise audiences.</li>
+        <li>Represented Tinybird at AWS re:Invent, Google Cloud Next, and API World; translated complex pipeline architecture for non-technical stakeholders.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-row">
+        <span class="job-title">Staff Partner Engineer &amp; Senior Developer Advocate <span class="job-org">— Twitter</span></span>
+        <span class="job-dates">2014 – 2023</span>
+      </div>
+      <ul class="job-points">
+        <li>Lead partner engineer for strategic integrations with Salesforce, Google, Apple, and Netflix — including live event infrastructure and high-availability API systems.</li>
+        <li>Pioneered use of real-time social data streams in public safety contexts, including flood-warning notification systems; earned two national awards for this work.</li>
+        <li>Represented Twitter at the UN Climate Change Conference (COP23) and NASA JPL, presenting API use cases for environmental monitoring and public information systems.</li>
+        <li>Authored core API documentation for Search and Direct Message APIs; collaborated on launch of Tweet Edits and API v2 platform.</li>
+        <li>Led technical success for ~300 enterprise accounts; deep experience with trust, accuracy, and integrity of information delivered at scale.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-row">
+        <span class="job-title">Developer Advocate <span class="job-org">— Gnip</span></span>
+        <span class="job-dates">2012 – 2014</span>
+      </div>
+      <ul class="job-points">
+        <li>Early technical advocate at a pioneering social data company, providing developer support and onboarding during rapid growth. Gnip was acquired by Twitter in 2014.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-row">
+        <span class="job-title">Software Lead &amp; Product Manager <span class="job-org">— OneRain Inc.</span></span>
+        <span class="job-dates">Prior to 2012</span>
+      </div>
+      <ul class="job-points">
+        <li>Lead developer for enterprise flood-warning software deployed by emergency management agencies globally; built and managed real-time sensor data ingestion, alerting pipelines, and operator-facing UI.</li>
+        <li>Firsthand experience designing systems where data accuracy and timeliness directly affect public safety outcomes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="skill-label">data &amp; infra</span>
+        <span class="skill-value">Real-time streaming pipelines, API platform engineering, REST/webhook architecture, SQLite, Python, anomaly detection, alerting systems</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">advocacy</span>
+        <span class="skill-value">Technical writing, public speaking, stakeholder education, developer community engagement, translating complex systems for policy and non-technical audiences</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">domain</span>
+        <span class="skill-value">Public safety alerting, emergency management systems, hydrologic warning infrastructure, social data integrity, enterprise API platforms</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Education</div>
+    <div class="edu-row">
+      <span class="edu-degree">M.S., Civil Engineering</span>
+      <span class="edu-school">University of Colorado, Boulder, CO</span>
+    </div>
+    <div class="edu-row">
+      <span class="edu-degree">B.S., Mechanical Engineering</span>
+      <span class="edu-school">University of Minnesota, Minneapolis, MN</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Recognition</div>
+    <div class="rec-card">
+      <div class="rec-title">
+        <span>NHWC Innovation Award</span>
+        <span class="rec-year">2017</span>
+      </div>
+      <div class="rec-desc">Recognized for integrating real-time social data into flood-warning systems. Awarded to individuals who have "exceptionally benefited the hydrologic warning profession."</div>
+    </div>
+    <div class="rec-card">
+      <div class="rec-title">
+        <span>USGS Eugene M. Shoemaker Communications Award</span>
+        <span class="rec-year">2017</span>
+      </div>
+      <div class="rec-desc">Awarded for communicating complex scientific concepts around social data in public safety and weather warning systems to broad audiences.</div>
+    </div>
+  </section>
+
+  <footer>last updated · july 2026</footer>
+
+</div>
+</body>
+</html>
